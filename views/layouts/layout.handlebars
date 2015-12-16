@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap.css">
+</head>
+<body>
+		<div class="container">
+			{{{messages}}}
+				{{#if errors}}
+					{{#each errors}}
+						<div class="alert alert-danger">{{msg}}</div>
+					{{/each}}
+				{{/if}}
+			{{{body}}}
+		</div>
+	
+</body>
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/bootstrap.js"></script>
+</html>
