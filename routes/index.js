@@ -6,16 +6,16 @@ var LocalStrategy = require('passport-local').Strategy;
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
+
   if(!req.user){
-  	req.flash('error','You are not logged in!');
-  	res.render('login')
+  	res.redirect('/login');
   }else{
-  	res.render('dashboard', { title: 'Dashboard'});
+  	res.render('dashboard');
   }
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Please Log In' });
+  res.render('login', { title: 'Please Log In'});
 });
 
 router.get('/register', function(req, res, next) {
@@ -57,7 +57,7 @@ router.post('/login', function(req, res, next){
 
 	passport.authenticate('local-login',{
 		successRedirect:'/',
-		failureRedirect:'/',
+		failureRedirect:'/login',
 		failureFlash:true
 	})(req, res, next);
 });
